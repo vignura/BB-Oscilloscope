@@ -1,0 +1,2 @@
+ADC usage reference:
+https://www.teachmemicro.com/beaglebone-black-adc/
