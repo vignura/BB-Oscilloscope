@@ -7,6 +7,12 @@ int main()
 	int iRetVal = 0;
 	printf("\r\nBeagleBone Oscilloscope");
 
+	iRetVal = BB_OSC_InitADC();
+	if(iRetVal != BB_OSC_SUCCESS)
+	{
+		printf("\r\nADC initialization failed");
+	}
+
 	iRetVal = InitServer();
 	if(iRetVal != BB_OSC_SUCCESS)
 	{

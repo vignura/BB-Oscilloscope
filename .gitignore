@@ -35,6 +35,7 @@
 *.i*86
 *.x86_64
 *.hex
+BB-OSC-FWS-ARM7-LINUX-0V01
 
 # Debug files
 *.dSYM/

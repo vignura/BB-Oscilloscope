@@ -31,6 +31,34 @@ int BB_OSC_DisplayErrors(int iErrCode)
 			printf("\r\n[%d]Error: Invalid command ID in Network Packet Header", iErrCode);
 			break;
 
+		case BB_OSC_CAPEMGR_FILE_OPEN_FAIL:
+			printf("\r\n[%d]Error: Unable to open BB capemanager file", iErrCode);
+			break;
+
+		case BB_OSC_CAPEMGR_FILE_WRITE_FAIL:
+			printf("\r\n[%d]Error: Unable to write BB capemanager file", iErrCode);
+			break;
+
+		case BB_OSC_CAPEMGR_FILE_READ_FAIL:
+			printf("\r\n[%d]Error: Unable to read BB capemanager file", iErrCode);
+			break;
+
+		case BB_OSC_ADCIIO_FILE_OPEN_FAIL:
+			printf("\r\n[%d]Error: Unable to open ADC IIO file", iErrCode);
+			break;
+
+		case BB_OSC_ADCIIO_FILE_WRITE_FAIL:
+			printf("\r\n[%d]Error: Unable to write ADC IIO file", iErrCode);
+			break;
+
+		case BB_OSC_ADCIIO_FILE_READ_FAIL:
+			printf("\r\n[%d]Error: Unable to read ADC IIO file", iErrCode);
+			break;
+
+		case BB_OSC_INVALID_ADC_ID:
+			printf("\r\n[%d]Error: Invalid ADC ID", iErrCode);
+			break;
+
 		default:
 			printf("\r\nUnknown Error Code %d", iErrCode);
 	}
