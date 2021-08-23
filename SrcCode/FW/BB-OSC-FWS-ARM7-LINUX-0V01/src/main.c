@@ -5,7 +5,7 @@ BB_OSC_GLOBAL_HANDLE  g_Handle = {0};
 int main()
 {
 	int iRetVal = 0;
-	printf("\r\nBeagleBone Oscilloscope");
+	printf("\r\nBeagleBone Oscilloscope\n");
 
 	iRetVal = BB_OSC_InitADC();
 	if(iRetVal != BB_OSC_SUCCESS)

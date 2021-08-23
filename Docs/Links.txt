@@ -1,2 +1,4 @@
 ADC usage reference:
 https://www.teachmemicro.com/beaglebone-black-adc/
+# ADC and capemanager issue
+https://gist.github.com/matthewmcneely/bf44655c74096ff96475 (used 4.19-ti branch)

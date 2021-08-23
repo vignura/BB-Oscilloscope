@@ -4,7 +4,8 @@ int BB_OSC_InitADC()
 {
 	int iRetVal = 0;
 
-	iRetVal = BB_OSC_EnableADC();
+	printf("%s\n", __func__);
+	iRetVal = BB_OSC_ReadADCID();
 	if(iRetVal != BB_OSC_SUCCESS)
 	{
 		BB_OSC_DisplayErrors(iRetVal);
@@ -13,6 +14,7 @@ int BB_OSC_InitADC()
 	return iRetVal;
 }
 
+/* not used not since cape manager is removed */
 int BB_OSC_EnableADC()
 {
 	int iRetVal = 0;
@@ -74,16 +76,20 @@ int BB_OSC_ReadADCID()
 	char arrcADCID[32] = {0};
 	char arrcPath[128] = {0};
 
+	printf("%s\n", __func__);
+
 	strcpy(arrcPath, BB_OSC_ADC_DEV_PATH);
 	strcat(arrcPath, "/name");
 
+	printf("%s: opening file %s\n", __func__, arrcPath);
 	fptr = fopen(arrcPath, "r");
 	if(fptr != NULL)
 	{
+		printf("%s: scanning file ...\n", __func__);
 		iRetVal = fscanf(fptr, "%s", arrcADCID);
 		if(iRetVal != 1)
 		{
-			printf("\r\nADC ID: %s", arrcADCID);
+			printf("\r\n%s: ADC ID: %s\n", __func__, arrcADCID);
 			iRetVal = BB_OSC_ADCIIO_FILE_READ_FAIL;
 		}
 		else
@@ -102,6 +108,7 @@ int BB_OSC_ReadADCID()
 	}
 	else
 	{
+		printf("%s: failed to open file ...\n", __func__);
 		iRetVal = BB_OSC_ADCIIO_FILE_OPEN_FAIL;
 	}
 

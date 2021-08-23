@@ -4,6 +4,7 @@ int InitServer()
 {
 	int iRetVal = 0;
 
+	printf("\r\n%s\n", __func__);
 	iRetVal = pthread_create(&g_Handle.UDPServerID, NULL, (void *)UDPServerTask, NULL);
 	if(iRetVal != BB_OSC_SUCCESS)
 	{
