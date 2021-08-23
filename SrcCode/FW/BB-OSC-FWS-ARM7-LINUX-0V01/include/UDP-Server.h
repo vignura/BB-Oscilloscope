@@ -75,7 +75,7 @@ int UDPServerTask();
 int BB_OSC_ValidateHeader(NetworkHeader *pS_NetHeader);
 int BB_OSC_PrintNetHeader(NetworkHeader *pS_NetHeader);
 void BB_OSC_FrameHeader(short in_iMsgStatus, unsigned long in_ulResMessageSize);
-void BB_OSC_FrameTXBuffer(char *out_cTxBuffer, unsigned long *out_ulTxPacketLength);
+void BB_OSC_FrameTXBuffer(unsigned char *out_cTxBuffer, unsigned long *out_ulTxPacketLength);
 int BB_OSC_CommandProcessor(unsigned long in_ulCmdID, unsigned char *in_ucBuffer, unsigned long in_ulBufferLen,
 							unsigned char *out_ucBuffer, unsigned long *out_ulBuffLen);
 #endif // BB_OSC_UDP_SERVER_H

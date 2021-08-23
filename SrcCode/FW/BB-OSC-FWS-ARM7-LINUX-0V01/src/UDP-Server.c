@@ -17,7 +17,7 @@ int InitServer()
 int UDPServerTask()
 {
 	int iRetVal = 0;
-	int iClientAddrLen	= 0;
+	socklen_t iClientAddrLen	= 0;
 
 	unsigned long ulTxMessageLen		= 0;
 	unsigned long ulBuffIndex			= 0;
@@ -90,7 +90,7 @@ int UDPServerTask()
 				if(iRetVal != ulTxMessageLen)
 				{
 					printf("\r\nUDP Response Packet Sending Failed : %d", iRetVal);
-					printf("\r\n[%d]: %s", strerror(errno));
+					printf("\r\n[%d]: %s", errno, strerror(errno));
 				}
 			}
 			else
@@ -142,16 +142,16 @@ int BB_OSC_PrintNetHeader(NetworkHeader *pS_NetHeader)
 		return BB_OSC_NULL_PTR_ACCESS;
 	}
 
-	printf("\r\nPacket length:   %d", pS_NetHeader->ulPktLen);
-	printf("\r\nSource ID:       %#x", pS_NetHeader->ulSrc);
-	printf("\r\nDestination ID:  %#x", pS_NetHeader->ulDest);
-	printf("\r\nCategory:        %d", pS_NetHeader->ulcategory);
-	printf("\r\nSubitem ID:      %d", pS_NetHeader->ulSubItem);
-	printf("\r\nNo of Fragments: %d", pS_NetHeader->ulNoOfFragments);
-	printf("\r\nFragment No:     %d", pS_NetHeader->ulFragmentNo);
-	printf("\r\nSequence No:     %d", pS_NetHeader->ulSequenceNo);
+	printf("\r\nPacket length:   %lu", pS_NetHeader->ulPktLen);
+	printf("\r\nSource ID:       %#lx", pS_NetHeader->ulSrc);
+	printf("\r\nDestination ID:  %#lx", pS_NetHeader->ulDest);
+	printf("\r\nCategory:        %lu", pS_NetHeader->ulcategory);
+	printf("\r\nSubitem ID:      %lu", pS_NetHeader->ulSubItem);
+	printf("\r\nNo of Fragments: %lu", pS_NetHeader->ulNoOfFragments);
+	printf("\r\nFragment No:     %lu", pS_NetHeader->ulFragmentNo);
+	printf("\r\nSequence No:     %lu", pS_NetHeader->ulSequenceNo);
 	printf("\r\nReturn value:    %d", pS_NetHeader->iRetVal);
-	printf("\r\nFlag value:      %d", pS_NetHeader->ulAAAA5555);
+	printf("\r\nFlag value:      %lu", pS_NetHeader->ulAAAA5555);
 	
 	return BB_OSC_SUCCESS;
 }
@@ -200,7 +200,7 @@ void BB_OSC_FrameHeader(short in_iMsgStatus, unsigned long in_ulResMessageSize)
 	g_Handle.S_UDPTXPacket.stNetHeader.ulAAAA5555		= htonl(0xAAAA5555);	
 }
 
-void BB_OSC_FrameTXBuffer(char *out_cTxBuffer, unsigned long *out_ulTxPacketLength)
+void BB_OSC_FrameTXBuffer(unsigned char *out_cTxBuffer, unsigned long *out_ulTxPacketLength)
 {
 	unsigned long ulMessageLength	= 0;
 	

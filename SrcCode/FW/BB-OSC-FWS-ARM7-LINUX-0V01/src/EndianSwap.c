@@ -2,6 +2,8 @@
 
 int BB_OSC_NetHeader_EndSwap(NetworkHeader *pS_NetHeader)
 {
+	int iRetVal = 0;
+
 	if(pS_NetHeader == NULL)
 	{
 		return BB_OSC_NULL_PTR_ACCESS;
@@ -16,6 +18,8 @@ int BB_OSC_NetHeader_EndSwap(NetworkHeader *pS_NetHeader)
 	pS_NetHeader->ulSequenceNo		= htonl(pS_NetHeader->ulSequenceNo);
 	pS_NetHeader->iRetVal			= htonl((unsigned long)pS_NetHeader->iRetVal);
 	pS_NetHeader->ulAAAA5555		= htonl(pS_NetHeader->ulAAAA5555);
+
+	return iRetVal;
 }
 
 int BB_OSC_ResReadVersion_EndSwap(BB_OSC_RES_READ_VERSION *pS_ResReadVersion)
