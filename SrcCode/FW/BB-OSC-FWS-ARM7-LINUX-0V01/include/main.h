@@ -52,4 +52,5 @@
 // declare the globale handle
 extern BB_OSC_GLOBAL_HANDLE g_Handle;
 
+int BB_OSC_Test_ADCOneShotMode();
 #endif // BB_OSC_MAIN_H

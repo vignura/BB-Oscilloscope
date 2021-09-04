@@ -1,0 +1,4 @@
+ADC path in beaglebone "/sys/bus/iio/devices/iio\:device0"
+Contents of "/sys/bus/iio/devices/iio\:device0"
+    buffer  dev  in_voltage0_raw  in_voltage1_raw  in_voltage2_raw  in_voltage3_raw  in_voltage4_raw  in_voltage5_raw
+    in_voltage6_raw  in_voltage7_raw  name  of_node  power  scan_elements  subsystem  uevent    

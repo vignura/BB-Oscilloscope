@@ -58,6 +58,14 @@ int BB_OSC_DisplayErrors(int iErrCode)
 		case BB_OSC_INVALID_ADC_ID:
 			printf("\r\n[%d]Error: Invalid ADC ID", iErrCode);
 			break;
+		
+		case BB_OSC_INVALID_ADC_CH_NO:
+			printf("\r\n[%d]Error: Invalid ADC Channel number", iErrCode);
+			break;
+		
+		case BB_OSC_INVALID_ADC_DATA_READ_SIZE:
+			printf("\r\n[%d]Error: Invalid ADC Data read size", iErrCode);
+			break;
 
 		default:
 			printf("\r\nUnknown Error Code %d", iErrCode);
